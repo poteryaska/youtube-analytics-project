@@ -5,7 +5,7 @@ if __name__ == '__main__':
 
     # получаем значения атрибутов
     print(vdud.title)  # вДудь
-    print(vdud.video_count)  # 163 (может уже больше)
+    # print(vdud.video_count)  # 163 (может уже больше)
     print(vdud.url)  # https://www.youtube.com/channel/UCMCgOm8GZkHp8zJ6l7_hIuA
 
     # менять не можем

@@ -27,9 +27,9 @@ docs: https://developers.google.com/youtube/v3/docs/channels/list
 '''
 #ИСПРАВЛЕНО
 channel_id = 'UCMCgOm8GZkHp8zJ6l7_hIuA'  # вДудь
-def print_info(channel_id):
-    channel = youtube.channels().list(id=channel_id, part='snippet,statistics').execute()
-    return printj(channel)
+channel = youtube.channels().list(id=channel_id, part='snippet,statistics').execute()
+printj(channel)
+
 
 #
 # '''

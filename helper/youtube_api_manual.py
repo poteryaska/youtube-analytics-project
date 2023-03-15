@@ -8,7 +8,7 @@ import isodate
 
 #ИСПРАВЛЕНО
 # YT_API_KEY скопирован из гугла и вставлен в переменные окружения
-api_key: str = os.getenv('API_KEY')
+api_key: str = 'AIzaSyCdYUm_8N00-CjLiKw-N6lnxFGzxn4W3Pc'
 
 # создать специальный объект для работы с API
 youtube = build('youtube', 'v3', developerKey=api_key)
@@ -25,7 +25,7 @@ docs: https://developers.google.com/youtube/v3/docs/channels/list
 
 сервис для быстрого получения id канала: https://commentpicker.com/youtube-channel-id.php
 '''
-#ИСПРАВЛЕНО
+
 channel_id = 'UCMCgOm8GZkHp8zJ6l7_hIuA'  # вДудь
 channel = youtube.channels().list(id=channel_id, part='snippet,statistics').execute()
 printj(channel)

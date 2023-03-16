@@ -11,7 +11,7 @@ class Channel:
         items = channel["items"][0]
         self.description = items["snippet"]["description"]
         self.title = items["snippet"]["title"]
-        self.url = "https://www.youtube.com/channel/" + "UCMCgOm8GZkHp8zJ6l7_hIuA"
+        self.url = "https://www.youtube.com/channel/" + self.__channel_id
         self.subscriberCount = items["statistics"]["subscriberCount"]
         self.video_count = items["statistics"]["videoCount"]
         self.viewCount = items["statistics"]["viewCount"]

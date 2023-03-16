@@ -33,15 +33,15 @@ class Channel:
     def to_json(self, json_file):
         '''Сохраняет в файл значения атрибутов экземпляра `Channel`'''
         dict_channel = {}
-        dict_channel['id'] = self.channel_id
+        dict_channel['id'] = self.__channel_id
         dict_channel['description'] = self.description
         dict_channel['title'] = self.title
         dict_channel['url'] = self.url
         dict_channel['subscriberCount'] = self.subscriberCount
         dict_channel['video_count'] = self.video_count
         dict_channel['viewCount'] = self.viewCount
-        with open("vdud.json", "w") as write_file:
-            json.dump(dict_channel, write_file)
+        with open("vdud.json", "w", encoding='utf-8') as write_file:
+            json.dump(dict_channel, write_file, indent=4, ensure_ascii=False)
 
 
 

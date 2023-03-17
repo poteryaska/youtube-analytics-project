@@ -26,9 +26,9 @@ docs: https://developers.google.com/youtube/v3/docs/channels/list
 сервис для быстрого получения id канала: https://commentpicker.com/youtube-channel-id.php
 '''
 
-channel_id = 'UCMCgOm8GZkHp8zJ6l7_hIuA'  # вДудь
-channel = youtube.channels().list(id=channel_id, part='snippet,statistics').execute()
-printj(channel)
+# channel_id = 'UCMCgOm8GZkHp8zJ6l7_hIuA'  # вДудь
+# channel = youtube.channels().list(id=channel_id, part='snippet,statistics').execute()
+# printj(channel)
 
 
 #

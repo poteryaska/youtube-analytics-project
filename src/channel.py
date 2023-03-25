@@ -1,8 +1,10 @@
 from helper.youtube_api_manual import youtube, printj
 import json
 
+
 class Channel:
     """Класс для ютуб-канала"""
+
     def __init__(self, channel_id: str) -> None:
         """Экземпляр инициализируется id канала. Дальше все данные будут подтягиваться по API."""
         self.__channel_id = channel_id
@@ -19,7 +21,6 @@ class Channel:
     def print_info(self) -> None:
         """Выводит в консоль информацию о канале."""
         printj(self.channel)
-
 
     @property
     def channel_id(self):
@@ -57,8 +58,6 @@ class Channel:
     def viewCount(self):
         return self.__viewCount
 
-
-
     @staticmethod
     def get_service():
         '''Возвращает объект для работы с YouTube API'''
@@ -90,3 +89,6 @@ class Channel:
         if int(self.__subscriberCount) >= int(other.subscriberCount):
             return True
 
+    def __gt__(self, other):
+        if int(self.__subscriberCount) > int(other.subscriberCount):
+            return True

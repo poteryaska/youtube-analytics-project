@@ -16,13 +16,11 @@ class PlayList:
 
     @property
     def title(self):
-        '''Перебираем плейлисты канала чтобы вытащить нужный и выводим название плейлиста'''
-        for playlist in self.get_playlists_channel()['items']:
-            if playlist['id'] == self.__playlist_id:
-                self.__title = playlist['snippet']['title']
-                break
-            else:
-                self.__title = None
+        '''Выводим название плейлиста'''
+        self.__title = youtube.playlists().list(id=self.__playlist_id,
+                                                part='snippet',
+                                                maxResults=50,
+                                                ).execute()['items'][0]['snippet']['title']
         return self.__title
 
     @property

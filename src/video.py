@@ -1,22 +1,29 @@
-from helper.youtube_api_manual import youtube, printj
+from helper.youtube_api_manual import youtube
 
 
 class Video:
     '''Класс для получения данных видео-ролика'''
 
-    def __init__(self, video_id):
+    def __init__(self, video_id) -> None:
         """
         :param video_id: id видео
         Далее: название видео, ссылка на видео, количество просмотров, количество лайков
         """
         self.__video_id = video_id
-        video_response = youtube.videos().list(part='snippet,statistics,contentDetails,topicDetails',
-                                               id=video_id
-                                               ).execute()
-        self.video_title: str = video_response['items'][0]['snippet']['title']
-        self.url = "https://youtu.be/" + self.__video_id
-        self.view_count: int = video_response['items'][0]['statistics']['viewCount']
-        self.like_count: int = video_response['items'][0]['statistics']['likeCount']
+        self.video_title = None
+        self.url = None
+        self.view_count = None
+        self.like_count = None
+        try:
+            self.video_response = youtube.videos().list(part='snippet,statistics,contentDetails,topicDetails',
+                                                        id=self.__video_id
+                                                        ).execute()
+            self.video_title: str = self.video_response['items'][0]['snippet']['title']
+            self.url = "https://youtu.be/" + self.__video_id
+            self.view_count: int = self.video_response['items'][0]['statistics']['viewCount']
+            self.like_count: int = self.video_response['items'][0]['statistics']['likeCount']
+        except IndexError:
+            print("ID видео не сущестует")
 
     def __str__(self):
         '''Вывод названия видео'''
